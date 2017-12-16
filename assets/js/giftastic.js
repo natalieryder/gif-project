@@ -48,7 +48,7 @@ var gifs = {
 		this.params.q = topic;
 		this.params.offset = clicked*10-10;
 		var thisGifs = this;
-		var url = "http://api.giphy.com/v1/gifs/search"
+		var url = "https://api.giphy.com/v1/gifs/search"
 		url += '?' + $.param(gifs.params);
 		$.ajax({
 		  url: url,
