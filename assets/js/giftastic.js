@@ -43,12 +43,11 @@ var gifs = {
 	},
 
 	buttonClick: function(topic,clicked) {
-		console.log(clicked);
 		$("#gifs").empty();
 		this.params.q = topic;
 		this.params.offset = clicked*10-10;
 		var thisGifs = this;
-		var url = "https://api.giphy.com/v1/gifs/search"
+		var url = "https://api.giphy.com/v1/gifs/search";
 		url += '?' + $.param(gifs.params);
 		$.ajax({
 		  url: url,
@@ -60,12 +59,14 @@ var gifs = {
 				
 				var gifURL = result.data[i].images.fixed_width_still.url;
 				var rating = $("<p>").html("Rating: " + result.data[i].rating.toUpperCase());
+				var button = $("<button>").attr("data-number",i).addClass("source").html("source");
+				var source = $("<a>").addClass("source-link").attr("target","_blank");
 				var gifDiv = $("<div>").addClass("gif");
 			  	var gifContainer = $("<img>")
 			  	.attr("src",gifURL);
 			  	$(gifContainer).attr("data-number", i)
 			  	.addClass("still");
-			  	$(gifDiv).append(rating).append(gifContainer);
+			  	$(gifDiv).append(rating).append(gifContainer).append(button).append(source);
 			  	$("#gifs").append(gifDiv);
 
 
@@ -84,9 +85,14 @@ var gifs = {
 			$(img).attr("src", gifs.gifs[$(img).data("number")].images.fixed_width_still.url)
 			.addClass("still");
 		}
-
+	},
+	sourceClick: function(button) {
+		var thisGifContainer = $(button).parent();
+		var number = $(button).attr("data-number");
+		var source = this.gifs[number].source;
+		$(thisGifContainer).children(".source-link").append(source).attr("href",source);
 	}
-}
+};
 
 // make each topic a button
 
@@ -109,14 +115,19 @@ $(document).ready(function() {
 		
 		var timesClicked = $(this).attr("data-clicked");
 		timesClicked++;
-		// console.log(timesClicked);
-		$(this).attr("data-clicked",timesClicked);
-		// console.log($(this).attr("data-clicked"));
 
+		$(this).attr("data-clicked",timesClicked);
+
+		//pass topic and number of times clicked into buttonClick function
 		gifs.buttonClick($(this).data("topic"),$(this).attr("data-clicked"));
 	});
+
 	$(document).on("click", "img", function(event) {
 		gifs.imageClick(event.target);
+	});
+	
+	$(document).on("click", ".source", function(event) {
+		gifs.sourceClick(event.target);
 	});
 	
 });

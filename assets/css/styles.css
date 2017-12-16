@@ -30,10 +30,24 @@ form {
 
 .gif {
   text-align: center;
-  padding: 20px; }
+  padding: 20px;
+  width: 33%; }
   .gif img {
     cursor: pointer;
-    border: 3px solid rgba(0, 0, 0, 0.3); }
+    border: 3px solid rgba(0, 0, 0, 0.3);
+    display: block;
+    margin: auto; }
+  .gif .source-link {
+    display: block;
+    word-wrap: break-word;
+    margin-top: 16px;
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: underline; }
+    .gif .source-link:hover {
+      color: white; }
+  .gif button {
+    background: white;
+    margin-top: 16px; }
 
 #add-topic {
   background: #B0BEC5;

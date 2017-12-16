@@ -34,11 +34,28 @@ form {
 }
 .gif {
 	text-align: center;
+
 	padding: 20px;
-// 	width: 33%;
+	width: 33%;
 	img {
 		cursor: pointer;
 		border: 3px solid rgba(black,.3);
+		display: block;
+		margin: auto;
+	}
+	.source-link {
+		display: block;
+		word-wrap: break-word;
+		margin-top: 16px;
+		color: rgba(white,.7);
+		text-decoration: underline;
+		&:hover {
+			color: white;
+		}
+	}
+	button {
+		background: white;
+		margin-top: 16px;
 	}
 }
 
