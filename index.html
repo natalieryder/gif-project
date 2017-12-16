@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1">
+
+    <title>Giftastic</title>
+
+    <link rel="stylesheet"
+          href="./assets/css/reset.css">
+    <link rel="stylesheet"
+          href="./assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet"
+          href="./assets/css/styles.css">
+
+</head>
+
+<body>
+    <div id="buttons">
+    </div>
+    <form class="text-center pt-0">
+        <label for="user-input">Add a Topic</label>
+        <input type="text"
+               id="user-input">
+
+        <!-- Button triggers new topic to be added -->
+        <input id="add-topic"
+                class="mt-2 mt-md-0"
+               type="submit"
+               value="Add a Topic">
+    </form>
+    <h3 class="pageNum text-center mt-5"></h3>
+    <div id="gifs"></div>
+
+    <script src="./assets/js/jquery-3.2.1.min.js"></script>
+
+    <script type="text/javascript"
+            src="./assets/js/giftastic.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+/* styles */
+body {
+  background: #004D40;
+  color: white; }
+
+#buttons {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  padding: 30px; }
+  #buttons button {
+    border: 1px solid black;
+    padding: 5px 10px;
+    margin: 5px;
+    cursor: pointer; }
+    #buttons button:hover {
+      background: gray; }
+    #buttons button:active {
+      outline: none; }
+
+form {
+  padding: 30px; }
+
+#gifs {
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap; }
+
+.gif {
+  text-align: center;
+  padding: 20px; }
+  .gif img {
+    cursor: pointer;
+    border: 3px solid rgba(0, 0, 0, 0.3); }
+
+#add-topic {
+  background: #B0BEC5;
+  color: white;
+  cursor: pointer;
+  border: none;
+  padding: 5px 20px; }
+  #add-topic:hover {
+    background: #ddd; }
